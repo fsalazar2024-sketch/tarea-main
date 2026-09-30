@@ -1,0 +1,6 @@
+id,nombre,precio,categoria,formato,stock,imagen,descripcion
+1,Astra Notebook 482,599990,Computación,Notebook,25,https://picsum.photos/seed/1/400/300,Notebook Astra ideal para uso diario.
+2,Nova Smartphone 731,349990,Telefonía,Smartphone,40,https://picsum.photos/seed/2/400/300,Smartphone Nova ideal para uso diario.
+3,Vertex Monitor 215,189990,Computación,Monitor,12,https://picsum.photos/seed/3/400/300,Monitor Vertex ideal para uso diario.
+4,Lumen Audífonos 904,49990,Audio,Audífonos,80,https://picsum.photos/seed/4/400/300,Audífonos Lumen ideal para uso diario.
+5,Kronos Silla Gamer 337,159990,Gaming,Silla Gamer,7,https://picsum.photos/seed/5/400/300,Silla Gamer Kronos ideal para uso diario.

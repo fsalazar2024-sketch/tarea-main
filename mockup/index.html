@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitrina de Catálogo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1>Vitrina de Catálogo</h1>
+    <p class="subtitle">4.032 productos disponibles</p>
+  </header>
+
+  <main class="container">
+
+    <!-- Búsqueda y filtros -->
+    <section class="controls" aria-label="Búsqueda y filtros">
+      <div class="search-box">
+        <label for="searchInput" class="sr-only">Buscar producto</label>
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Buscar por nombre..."
+          autocomplete="off"
+        >
+      </div>
+
+      <div class="filters">
+        <div class="filter-group">
+          <label for="categoriaSelect">Categoría</label>
+          <select id="categoriaSelect">
+            <option value="">Todas</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="formatoSelect">Formato</label>
+          <select id="formatoSelect">
+            <option value="">Todos</option>
+          </select>
+        </div>
+
+        <button id="clearFiltersBtn" type="button" class="btn-secondary">
+          Limpiar filtros
+        </button>
+      </div>
+    </section>
+
+    <!-- Estados de interfaz -->
+    <div id="loadingState" class="state loading" hidden>
+      <p>Cargando productos...</p>
+    </div>
+
+    <div id="errorState" class="state error" hidden>
+      <p>⚠ No fue posible cargar los productos.</p>
+      <button id="retryBtn" type="button" class="btn-primary">Reintentar</button>
+    </div>
+
+    <div id="emptyState" class="state empty" hidden>
+      <p>No se encontraron productos.</p>
+    </div>
+
+    <!-- Resultados -->
+    <section
+      id="productGrid"
+      class="product-grid"
+      aria-live="polite"
+      aria-label="Lista de productos"
+    ></section>
+
+    <!-- Paginación -->
+    <nav id="pagination" class="pagination" aria-label="Paginación" hidden>
+      <button id="prevPageBtn" type="button" class="btn-page" disabled>
+        Anterior
+      </button>
+      <span id="pageInfo" class="page-info">Página 1</span>
+      <button id="nextPageBtn" type="button" class="btn-page" disabled>
+        Siguiente
+      </button>
+    </nav>
+
+  </main>
+
+  <!-- Modal de detalle -->
+  <div
+    id="productModal"
+    class="modal"
+    hidden
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+  >
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-content">
+      <button id="closeModalBtn" class="modal-close" type="button" aria-label="Cerrar">
+        &times;
+      </button>
+      <div id="modalBody">
+        <!-- Contenido dinámico -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Plantilla para tarjeta de producto -->
+  <template id="productCardTemplate">
+    <article class="product-card">
+      <img class="product-image" src="" alt="" loading="lazy">
+      <div class="product-info">
+        <h3 class="product-name"></h3>
+        <p class="product-price"></p>
+        <p class="product-category"></p>
+      </div>
+      <button class="btn-detail" type="button">Ver detalle</button>
+    </article>
+  </template>
+
+  <!-- Plantilla para el modal -->
+  <template id="modalTemplate">
+    <h2 id="modalTitle" class="modal-title"></h2>
+    <img class="modal-image" src="" alt="">
+    <p class="modal-price"></p>
+    <p class="modal-category"></p>
+    <p class="modal-description"></p>
+    <p class="modal-stock"></p>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html> 
